@@ -1,0 +1,234 @@
+/* =================
+   Table of Contents
+
+   1. Global Styles: Global styles for my project.
+
+   2. Layout: Styles related with layout, e.g. header, nav, main, section, footer, div, etc.
+
+   3. Typography: Styles related to text, e.g. h1, h2, p, etc.
+
+   4. Assets: Styles related with the assets of the project, e.g. images, svg, etc.
+   ================= */
+
+/* =================
+   1. Global Styles
+   ================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+body {
+  /* Primary */
+  --very-dark-magenta: hsl(300, 43%, 22%);
+  --soft-pink: hsl(333, 80%, 67%);
+  /* Neutral */
+  --dark-grayish-magenta: hsl(303, 10%, 53%);
+  --light-grayish-magenta: hsl(300, 24%, 96%);
+  --white: hsl(0, 0%, 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2em;
+  font-family: 'League Spartan', sans-serif;
+  background-image: url(images/bg-pattern-top-desktop.svg),
+    url(images/bg-pattern-bottom-desktop.svg);
+  background-repeat: no-repeat;
+  background-position: top left, right bottom;
+}
+
+/* =================
+   2. Layout
+   ================= */
+.ratings {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  margin: 1em 0;
+}
+
+.rating {
+  background-color: var(--light-grayish-magenta);
+  margin: 0.5em 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.5em;
+  padding: 0.5em;
+}
+
+.reviews {
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+
+.review {
+  background-color: var(--very-dark-magenta);
+  margin: 0.5em 0;
+  padding: 1.5em;
+  border-radius: 0.5em;
+}
+
+.review-header {
+  display: flex;
+  align-items: center;
+  margin-top: 1em;
+  margin-bottom: 1.5em;
+}
+
+.review-header-text {
+  padding-left: 1.5em;
+}
+
+/* =================
+   3. Typography
+   ================= */
+.title {
+  font-size: 2rem;
+  padding: 1em;
+  text-align: center;
+  color: var(--very-dark-magenta);
+}
+
+.description {
+  color: var(--dark-grayish-magenta);
+  text-align: center;
+  font-size: 1em;
+}
+
+.rating-description {
+  color: var(--very-dark-magenta);
+  font-weight: bold;
+  margin: 0.5em 0;
+}
+
+.review-sub-title {
+  color: var(--soft-pink);
+}
+
+.review-comment {
+  margin-bottom: 0.25em;
+  font-size: 1.05em;
+}
+
+/* =================
+   4. Assets
+   ================= */
+.rating-stars {
+  margin-top: 0.4em;
+  margin-bottom: 0.25em;
+}
+
+.review-image {
+  border-radius: 100000px;
+  width: 2.5em;
+}
+
+@media (min-width: 1000px) {
+  body::before {
+    background: url('./images/bg-pattern-top-desktop.svg'),
+      url('./images/bg-pattern-bottom-desktop.svg');
+    background-repeat: no-repeat;
+    background-position: top left, right bottom;
+  }
+  main {
+    max-width: 80rem;
+    display: grid;
+    padding-left: 3em;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+      'header ratings'
+      'reviews reviews';
+  }
+
+  .header {
+    grid-area: header;
+    padding-right: 5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .title {
+    text-align: left;
+    font-size: 4rem;
+    padding: 0;
+    margin: 0.5em 0;
+  }
+
+  .description {
+    text-align: left;
+    font-size: 1.4em;
+    margin-bottom: 2.5em;
+  }
+
+  .ratings {
+    grid-area: ratings;
+  }
+
+  .rating {
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 80%;
+    max-width: 40rem;
+  }
+
+  .rating-stars {
+    margin-left: 1em;
+  }
+
+  .rating-description {
+    margin-left: 1em;
+  }
+
+  .rating.rating-reviews {
+    align-self: flex-start;
+  }
+
+  .rating.rating-report-guru {
+    align-self: center;
+  }
+
+  .rating.rating-best-tech {
+    align-self: flex-end;
+  }
+
+  .reviews {
+    grid-area: reviews;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: center;
+    align-content: initial;
+    gap: 1rem;
+    height: 16rem;
+  }
+
+  .review {
+    max-width: 25rem;
+    max-height: 30rem;
+  }
+
+  .review.review-colton {
+    align-self: start;
+  }
+
+  .review.review-irene {
+    align-self: center;
+  }
+
+  .review.review-anne {
+    align-self: end;
+  }
+}
